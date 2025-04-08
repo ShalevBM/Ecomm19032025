@@ -67,12 +67,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminManage\default.aspx" />
     <Content Include="default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminManage\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminManage\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\BLL\Category.cs" />
+    <Compile Include="App_Code\BLL\Product.cs" />
+    <Compile Include="App_Code\BLL\User.cs" />
+    <Compile Include="App_Code\DAL\CategoryDAL.cs" />
+    <Compile Include="App_Code\DAL\UserDAL.cs" />
+    <Compile Include="App_Code\DAL\ProductDAL.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,6 +118,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="css\" />
+    <Folder Include="images\" />
+    <Folder Include="js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

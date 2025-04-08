@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Ecomm19032025
+namespace BLL
 {
 	public partial class Login : System.Web.UI.Page
 	{
