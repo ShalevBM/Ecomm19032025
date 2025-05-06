@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Ecomm19032025.AdminManage
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class ProductAddEdit : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

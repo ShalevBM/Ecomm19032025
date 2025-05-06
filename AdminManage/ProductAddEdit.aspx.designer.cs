@@ -11,7 +11,7 @@ namespace Ecomm19032025.AdminManage
 {
 
 
-    public partial class Default
+    public partial class ProductAddEdit
     {
     }
 }
