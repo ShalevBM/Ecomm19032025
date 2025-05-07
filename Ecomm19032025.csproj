@@ -193,9 +193,14 @@
     <Content Include="AdminManage\ui-tabs-accordion.html" />
     <Content Include="AdminManage\ui-typograpy.html" />
     <Content Include="AdminManage\widgets.html" />
+    <Content Include="App_Data\EcommDB.mdf" />
+    <Content Include="App_Data\EcommDB_log.ldf">
+      <DependentUpon>EcommDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="Uploads\Prods\img\bread.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -268,7 +273,6 @@
     <Content Include="AdminManage\fonts\feather.woff" />
     <Content Include="AdminManage\AdminMaster.Master" />
     <None Include="packages.config" />
-    <Content Include="Uploads\Prods\img\bread.webp" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -277,7 +281,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Uploads\Prods\files\" />
     <Folder Include="Uploads\Prods\vod\" />
   </ItemGroup>

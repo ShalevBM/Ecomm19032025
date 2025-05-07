@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using DAL;
 
 namespace Ecomm19032025.AdminManage
 {
@@ -22,5 +23,6 @@ namespace Ecomm19032025.AdminManage
             }
 
         }
+       
     }
 }
