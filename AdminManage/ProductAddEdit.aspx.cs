@@ -21,7 +21,6 @@ namespace Ecomm19032025.AdminManage
                 {
                     p = Product.GetById(int.Parse(Pid)); // מביא את המוצר לפי מזהה
                 }
-
                 // קודם כל ממלא את רשימת הקטגוריות
                 List<Category> LstCat = Category.GetAll(); // מביא את כל הקטגוריות מהמסד
                 DDLCategory.DataSource = LstCat; // קובע את המקור נתונים של ה-DropDown
@@ -34,7 +33,8 @@ namespace Ecomm19032025.AdminManage
                     TxtPName.Text = p.Pname; // ממלא את שם המוצר
                     TxtPdesc.Text = p.Pdesc; // ממלא את תיאור המוצר
                     TxtPrice.Text = p.Price + ""; // ממלא את המחיר
-                    TxtPicname.Text = p.Picname; // ממלא את שם הקובץ של התמונה
+                    TxtPicname.Text = p.Picname;
+                    DDLStatus.SelectedValue = p.Status + " ";// ממלא את שם הקובץ של התמונה
                     HidPid.Value = p.Pid + ""; // שם את מזהה המוצר בשדה מוסתר
 
                     // אם הקטגוריה קיימת ברשימה, קובעת אותה כבחירה
@@ -49,6 +49,22 @@ namespace Ecomm19032025.AdminManage
                 }
 
             }
+        }
+
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+            Product p = new Product()
+            {
+                Pid = int.Parse(HidPid.Value),
+                Picname = TxtPicname.Text,
+                Pdesc = TxtPdesc.Text,
+                Price = float.Parse(TxtPrice.Text),
+                Pname = TxtPName.Text,
+                Status = int.Parse(DDLStatus.SelectedValue)
+            };
+            p.Save();
+            Response.Redirect("ProductList.aspx");
+
         }
 
         

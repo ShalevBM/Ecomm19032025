@@ -11,6 +11,9 @@
                 <th>Pid</th>
                 <th>Pname</th>
                 <th>price</th>
+                <th>Pdesc</th>
+                <th>Cid</th>
+                <th>Status</th>
                 <th>Picname</th>
                 <th>Action</th>
             </tr>
@@ -22,6 +25,9 @@
                         <td><%# Eval("Pid") %></td>
                         <td><%# Eval("Pname") %></td>
                         <td><%# Eval("Price") %></td>
+                        <td><%# Eval("Pdesc") %></td>
+                        <td><%# Eval("Cid") %></td>
+                        <td><%# Eval("Status") %></td>
                         <td>
                             <img src="/uploads/prods/img/<%# Eval("Picname") %>" class="avatar-img rounded-circle" width="40" /></td>
                         <td>
@@ -45,6 +51,16 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="CntFooter" runat="server">
     <script src='js/jquery.dataTables.min.js'></script>
     <script src='js/dataTables.bootstrap4.min.js'></script>
+    <script>
+      $('#ProductTable').DataTable(
+      {
+        autoWidth: true,
+        "lengthMenu": [
+          [16, 32, 64, -1],
+          [16, 32, 64, "All"]
+        ]
+      });
+    </script>
     
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="CntUnderFooter" runat="server">

@@ -60,6 +60,15 @@ namespace Ecomm19032025.AdminManage
         protected global::System.Web.UI.WebControls.DropDownList DDLCategory;
 
         /// <summary>
+        /// DDLStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLStatus;
+
+        /// <summary>
         /// TxtPdesc control.
         /// </summary>
         /// <remarks>
