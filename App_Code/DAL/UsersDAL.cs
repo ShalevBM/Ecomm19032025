@@ -28,6 +28,7 @@ namespace DAL
                     Email = (string)Dt.Rows[0]["Email"],
                     Phone = (string)Dt.Rows[0]["Phone"],
                     Address = (string)Dt.Rows[0]["Address"]
+                    
                 };
 
                 Db.Close();//סגירת החיבור לבסיס הנתונים
@@ -36,29 +37,33 @@ namespace DAL
             return new Users();
         }
 
-        public static List<Users> GetAll()//מחזירה את כל היוזרים
-        {
+       public static List<Users> GetAll()
+       {
             DbContext Db = new DbContext();
-            string sql = $"SELECT * FROM T_Users";
-            DataTable Dt = Db.Execute(sql);//מחזירה את כל היוזרים
+            string sql = "SELECT * FROM T_Users";
+            DataTable Dt = Db.Execute(sql);
             List<Users> lst = new List<Users>();
-            for (int i = 0; i < Dt.Rows.Count; i++)
+
+            foreach (DataRow row in Dt.Rows)
             {
-                Users Tmp = new Users();//יצירת אובייקט מסוג יוזר
-                Tmp = new Users()//יצירת אובייקט מסוג יוזר ומילוי השדות שלו עם הערכים שנשלפו ממסד הנתונים
+                Users Tmp = new Users()
                 {
-                    Uid = (int)Dt.Rows[i]["Uid"],
-                    FullName = (string)Dt.Rows[i]["FullName"],
-                    Pass = (string)Dt.Rows[i]["Pass"],
-                    Email = (string)Dt.Rows[i]["Email"],
-                    Phone = (string)Dt.Rows[i]["Phone"],
-                    Address = (string)Dt.Rows[i]["Address"]
+                    Uid = Convert.ToInt32(row["Uid"]),
+                    FullName = row["FullName"].ToString(),
+                    Pass = row["Pass"].ToString(),
+                    Email = row["Email"].ToString(),
+                    Phone = row["Phone"].ToString(),
+                    Address = row["Address"].ToString()
+                    
                 };
-                lst.Add(Tmp);//הוספת היוזר לרשימה
+
+                lst.Add(Tmp);
             }
-            Db.Close();//סגירת החיבור לבסיס הנתונים
-            return lst;//מחזירה את היוזרים
-        }
+
+            Db.Close();
+            return lst;
+       }
+
 
         public static int Save(Users Tmp)//שומר את היוזר
         {
@@ -73,7 +78,7 @@ namespace DAL
             else
 
             {
-                sql = $"UPDATE T_Users SET";
+                sql = $"UPDATE T_Users SET ";
                 sql += $"FullName=N'{Tmp.FullName}',";
                 sql += $"Pass=N'{Tmp.Pass}',";
                 sql += $"Email=N'{Tmp.Email}',";

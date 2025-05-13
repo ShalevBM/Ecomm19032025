@@ -31,7 +31,7 @@ namespace BLL//BLL - Business Logic Layer
 
         public static List<Users> GetAll()//מחזירה את כל המשתמשים
         {
-            return new List<Users>();//מחזירה רשימה חדשה של משתמשים
+            return UsersDAL.GetAll();//מחזירה רשימה חדשה של משתמשים
         }
 
         public int Save()//שומר את המשתמש
