@@ -10,7 +10,7 @@ namespace BLL
     {
         public int Cid { get; set; }
 
-        public string Cname { get; set; }//שם הקטגוריה
+        public string CName { get; set; }//שם הקטגוריה
 
         public int Status { get; set; }//שדה סטטוס 
 

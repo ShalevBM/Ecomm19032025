@@ -24,7 +24,7 @@ namespace DAL
                 Tmp = new Category()
                 {
                     Cid = (int)Dt.Rows[0]["Cid"],//השמת ערך בשדה
-                    Cname = (string)Dt.Rows[0]["Cname"]//השמת ערך בשדה
+                    CName = (string)Dt.Rows[0]["CName"]//השמת ערך בשדה
                 };
                 Db.Close();//סגירת החיבור לבסיס הנתונים
                 return Tmp;
@@ -43,8 +43,8 @@ namespace DAL
                 Category Tmp = new Category();
                 Tmp = new Category()
                 {
-                    Cid = (int)Dt.Rows[i]["Cid"],//השמת ערך בשדה
-                    Cname = (string)Dt.Rows[i]["Cname"]//השמת ערך בשדה
+                    Cid = (int)Dt.Rows[0]["Cid"],//השמת ערך בשדה
+                    CName = (string)Dt.Rows[0]["CName"]//השמת ערך בשדה
                 };
                 lst.Add(Tmp);
             }
@@ -59,19 +59,19 @@ namespace DAL
 
             if (Tmp.Cid == -1)
             {
-                sql = $"INSERT INTO T_Category (Cname) VALUES (N'{Tmp.Cname}')";
+                sql = $"INSERT INTO T_Category (CName) VALUES (N'{Tmp.CName}')";
             }
             else
             {
                 sql = $"UPDATE T_Category SET";
-                sql += $"Cname=N'{Tmp.Cname}'";
+                sql += $"CName=N'{Tmp.CName}'";
                 sql += $" WHERE Cid={Tmp.Cid}";
             }
 
             int i = Db.ExecuteNonQuery(sql);//מחזירה מספר שורות שהוסרו מהמסד נתונים
             if (Tmp.Cid == -1)
             {
-                sql = $"SELECT Max(Cid) FROM T_Category Where Cname='{Tmp.Cname}'";
+                sql = $"SELECT Max(Cid) FROM T_Category Where CName='{Tmp.CName}'";
                 Tmp.Cid = (int)Db.ExecuteScalar(sql);
             }
             Db.Close();//סגירת החיבור לבסיס הנתונים

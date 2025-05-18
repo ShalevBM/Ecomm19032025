@@ -53,6 +53,17 @@ namespace Ecomm19032025.AdminManage
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
+            string x = GlobFunc.GetRandStr(6);
+            string Picname = "";
+            if(UplPic.HasFile)
+            {
+                string FileName = GlobFunc.GetRandStr(8);
+                int ind = UplPic.FileName.LastIndexOf('.');
+                string Ext=UplPic.FileName.Substring(ind);
+                Picname=FileName+Ext;
+                UplPic.SaveAs(Server.MapPath("/Uploads/Prods/img/" + Picname));
+                TxtPicname.Text =Picname;
+            }
             Product p = new Product()
             {
                 Pid = int.Parse(HidPid.Value),

@@ -11,35 +11,26 @@ namespace Ecomm19032025.AdminManage
 {
 
 
-    public partial class ProductAddEdit
+    public partial class OrdersAddEdit
     {
 
         /// <summary>
-        /// TxtPName control.
+        /// TxtUid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPName;
+        protected global::System.Web.UI.WebControls.TextBox TxtUid;
 
         /// <summary>
-        /// TxtPrice control.
+        /// TxtTotalPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPrice;
-
-        /// <summary>
-        /// UplPic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload UplPic;
+        protected global::System.Web.UI.WebControls.TextBox TxtTotalPrice;
 
         /// <summary>
         /// HidPid control.
@@ -51,22 +42,13 @@ namespace Ecomm19032025.AdminManage
         protected global::System.Web.UI.WebControls.HiddenField HidPid;
 
         /// <summary>
-        /// TxtPicname control.
+        /// TxtTotalAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPicname;
-
-        /// <summary>
-        /// DDLCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLCategory;
+        protected global::System.Web.UI.WebControls.TextBox TxtTotalAmount;
 
         /// <summary>
         /// DDLStatus control.
@@ -76,15 +58,6 @@ namespace Ecomm19032025.AdminManage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDLStatus;
-
-        /// <summary>
-        /// TxtPdesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPdesc;
 
         /// <summary>
         /// BtnSave control.

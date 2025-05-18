@@ -25,6 +25,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="TxtPicname">Product Picture</label>
+                        <asp:FileUpload ID="UplPic" runat="server" />
                         <asp:HiddenField ID="HidPid" runat="server" Value="-1" />
                         <asp:TextBox ID="TxtPicname" runat="server" class="form-control" placeholder="Enter Product Picture" />
                     </div>

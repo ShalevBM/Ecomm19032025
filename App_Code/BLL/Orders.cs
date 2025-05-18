@@ -25,7 +25,7 @@ namespace BLL
 
         public static List<Orders> GetAll()//מחזירה את כל ההזמנות
         {
-            return new List<Orders>();//מחזירה רשימה חדשה של הזמנות
+            return OrdersDAL.GetAll();//מחזירה רשימה חדשה של הזמנות
         }
 
         public int Save()//שומר את ההזמנה
