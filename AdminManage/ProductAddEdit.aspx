@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminManage/AdminMaster.Master" AutoEventWireup="true" CodeBehind="ProductAddEdit.aspx.cs" Inherits="Ecomm19032025.AdminManage.ProductAddEdit" %>
+﻿<%@ Page Title="" Language="C#" ValidateRequest="false" MasterPageFile="~/AdminManage/AdminMaster.Master" AutoEventWireup="true" CodeBehind="ProductAddEdit.aspx.cs" Inherits="Ecomm19032025.AdminManage.ProductAddEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="tinymce/tinymce.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainCnt" runat="server">
     <h2 class="page-title">Edit/Add Product</h2>
@@ -23,24 +24,25 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="TxtPicname">Product Picture</label>
                         <asp:FileUpload ID="UplPic" runat="server" />
                         <asp:HiddenField ID="HidPid" runat="server" Value="-1" />
-                        <asp:TextBox ID="TxtPicname" runat="server" class="form-control" placeholder="Enter Product Picture" />
+                        <asp:TextBox ID="TxtPicname" runat="server" class="form-control" placeholder="Enter Product Picture" Visible="false" />
+                        
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="DDLCategory">Product Category</label>
                         <asp:DropDownList ID="DDLCategory" runat="server" class="form-control" />
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="DDLStatus">Product Status</label>
                         <asp:DropDownList ID="DDLStatus" runat="server" class="form-control">
                             <asp:ListItem Text="Active" Value="1"></asp:ListItem>
                             <asp:ListItem Text="Not Active" Value="0"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-12">
                         <label for="TxtPdesc">Description</label>
                         <asp:TextBox ID="TxtPdesc" runat="server" class="form-control" TextMode="MultiLine" Columns="40" Rows="10" placeholder="Enter Product Description" />
                     </div>
@@ -53,10 +55,25 @@
         </div>
 
     </div>
-    <!-- / .card-desk-->
-    </div>
+   
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="CntFooter" runat="server">
+    <script>
+        tinymce.init({
+            selector: '#MainCnt_TxtPdesc',
+            height: 500,
+            plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'media', 'table', 'help', 'wordcount'
+            ],
+            toolbar: 'undo redo | blocks | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="CntUnderFooter" runat="server">
 </asp:Content>

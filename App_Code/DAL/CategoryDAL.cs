@@ -43,8 +43,8 @@ namespace DAL
                 Category Tmp = new Category();
                 Tmp = new Category()
                 {
-                    Cid = (int)Dt.Rows[0]["Cid"],//השמת ערך בשדה
-                    CName = (string)Dt.Rows[0]["CName"]//השמת ערך בשדה
+                    Cid = (int)Dt.Rows[i]["Cid"],//השמת ערך בשדה
+                    CName = (string)Dt.Rows[i]["CName"]//השמת ערך בשדה
                 };
                 lst.Add(Tmp);
             }

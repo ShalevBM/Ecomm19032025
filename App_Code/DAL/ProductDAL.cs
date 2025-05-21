@@ -26,6 +26,7 @@ namespace DAL
                     Pname = row["Pname"].ToString(),
                     Pdesc = row["Pdesc"].ToString(),
                     Price = Convert.ToSingle(row["Price"]),
+                    Picname = row["Picname"].ToString(),
                     Cid = Convert.ToInt32(row["Cid"])
                 };
             }
@@ -49,6 +50,7 @@ namespace DAL
                     Pname = row["Pname"].ToString(),
                     Pdesc = row["Pdesc"].ToString(),
                     Price = Convert.ToSingle(row["Price"]),
+                    Picname = row["Picname"].ToString(),
                     Cid = Convert.ToInt32(row["Cid"])
                 };
 

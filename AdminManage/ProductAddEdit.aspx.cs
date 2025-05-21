@@ -33,7 +33,6 @@ namespace Ecomm19032025.AdminManage
                     TxtPName.Text = p.Pname; // ממלא את שם המוצר
                     TxtPdesc.Text = p.Pdesc; // ממלא את תיאור המוצר
                     TxtPrice.Text = p.Price + ""; // ממלא את המחיר
-                    TxtPicname.Text = p.Picname;
                     DDLStatus.SelectedValue = p.Status + " ";// ממלא את שם הקובץ של התמונה
                     HidPid.Value = p.Pid + ""; // שם את מזהה המוצר בשדה מוסתר
 
@@ -55,31 +54,27 @@ namespace Ecomm19032025.AdminManage
         {
             string x = GlobFunc.GetRandStr(6);
             string Picname = "";
-            if(UplPic.HasFile)
+            if (UplPic.HasFile)
             {
                 string FileName = GlobFunc.GetRandStr(8);
                 int ind = UplPic.FileName.LastIndexOf('.');
                 string Ext=UplPic.FileName.Substring(ind);
                 Picname=FileName+Ext;
                 UplPic.SaveAs(Server.MapPath("/Uploads/Prods/img/" + Picname));
-                TxtPicname.Text =Picname;
+                TxtPicname.Text = Picname;
             }
             Product p = new Product()
             {
                 Pid = int.Parse(HidPid.Value),
-                Picname = TxtPicname.Text,
                 Pdesc = TxtPdesc.Text,
                 Price = float.Parse(TxtPrice.Text),
                 Pname = TxtPName.Text,
+                Picname= TxtPicname.Text,
                 Status = int.Parse(DDLStatus.SelectedValue)
             };
             p.Save();
             Response.Redirect("ProductList.aspx");
 
         }
-
-        
-
-
     }
 }

@@ -29,8 +29,7 @@
                         <td><%# Eval("Cid") %></td>
                         <td><%# Eval("Status") %></td>
                         <td>
-                            <img src="/Uploads/Prods/img/<%# Eval("Picname") %>" />
-
+                            <img src='/Uploads/Prods/img/<%# Eval("Picname") %>' style="width: 80px; height: 80px;" />
                         </td>
                         <td>
                             <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">
@@ -39,31 +38,29 @@
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="ProductAddEdit.aspx?Pid=<%# Eval("Pid") %>">Edit</a>
-                                <a class="dropdown-item" href="#">Remove</a>
+                                <a class="dropdown-item" href='ProductList.aspx?remove=<%# Eval("Pid") %>' onclick="return confirm('Are you sure you want to remove this product?');">Remove</a>
                             </div>
                         </td>
                     </tr>
                 </ItemTemplate>
             </asp:Repeater>
-
         </tbody>
-
     </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="CntFooter" runat="server">
     <script src='js/jquery.dataTables.min.js'></script>
     <script src='js/dataTables.bootstrap4.min.js'></script>
     <script>
-      $('#ProductTable').DataTable(
-      {
-        autoWidth: true,
-        "lengthMenu": [
-          [16, 32, 64, -1],
-          [16, 32, 64, "All"]
-        ]
-      });
+        $('#ProductTable').DataTable(
+            {
+                autoWidth: true,
+                "lengthMenu": [
+                    [16, 32, 64, -1],
+                    [16, 32, 64, "All"]
+                ]
+            });
     </script>
-    
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="CntUnderFooter" runat="server">
 </asp:Content>

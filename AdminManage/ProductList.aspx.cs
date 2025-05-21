@@ -13,16 +13,31 @@ namespace Ecomm19032025.AdminManage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                List<Product> Lst = Product.GetAll();
+                // שלב 1: בדיקה אם יש בקשת מחיקה ב-URL
+                string removeId = Request.QueryString["remove"];
+                if (!string.IsNullOrEmpty(removeId))
+                {
+                    int pid;
+                    if (int.TryParse(removeId, out pid))
+                    {
+                        // קריאה לפונקציית מחיקה
+                        Product.DeleteById(pid);
+                    }
 
+                    // ריענון הדף כדי למחוק את הפרמטר מה-URL ולמנוע מחיקה כפולה ב-F5
+                    Response.Redirect("ProductList.aspx");
+                    return; // חשוב - שלא ימשיך ויעשה DataBind עם רשימה ישנה
+                }
+
+                // שלב 2: טעינת המוצרים
+                List<Product> Lst = Product.GetAll();
                 RptProds.DataSource = Lst;
                 RptProds.DataBind();
-                
             }
-
         }
-       
+
+
     }
 }
